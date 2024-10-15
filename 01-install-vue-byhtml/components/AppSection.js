@@ -1,26 +1,18 @@
+import AppSectionsList from "./AppSectionList.js"
+
 export default{
+    components:{AppSectionsList},
     template:/*html*/`
-    <section v-show="uncheckis.length">
-                <h1>已购物品</h1>
-            <h1>{{ title }}</h1>
-            <li v-for="item in uncheckis" :key="item.id">
-                <span>{{item.id}}</span>
-                <span>{{item.name}}</span>
-                <img :src="item.image" alt="" width="20px" height="20px">
-                <input type=checkbox v-model="item.is">
-                <span>{{item.is}}</span>
-            </li>
-        </section>
-        <section>
-            <h1>未购物品</h1>
-            <li v-for="item in checkis" :key="item.id">
-                <span>{{item.id}}</span>
-                <span>{{item.name}}</span>
-                <img :src="item.image" alt="" width="20px" height="20px">
-                <input type=checkbox v-model="item.is">
-                <span>{{item.is}}</span>
-            </li>
-        </section>
+    <app-sections-list
+    headline="已购物品"
+    :checkisChild="uncheckis">
+    </app-sections-list>
+       
+        
+        <app-sections-list
+        headline="未购物品" 
+        :checkisChild="checkis">
+        </app-sections-list>
     `,
         data(){
             return {
