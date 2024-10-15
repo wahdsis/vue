@@ -11,22 +11,14 @@ export default{
         return {
             newFood:"",
             submitcount:0,
-            buttonTitle:"添加"
         }
     },
     methods: {
         add(){
-            this.listChild.push({
-                id:this.listChild.length+1,
-                name:this.newFood,
-                image:"",
-                is:false,
-            });
+            this.$emit('add',this.newFood)
             this.newFood="";
             this.submitcount++;
         }
     },
-    props:{
-        listChild:Array
-    }
+   
 }

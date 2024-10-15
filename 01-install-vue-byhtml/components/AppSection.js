@@ -14,7 +14,7 @@ export default {
         :checkisChild="checkis">
         </app-sections-list>
         
-        <app-form :listChild="list">
+        <app-form @add="fatherAdd">
         </app-form>
     `,
     data() {
@@ -24,6 +24,16 @@ export default {
                 { id: 1, name: '鱿鱼丝', image: "../images/6ac54ccb31a09a5c1223677ba07c283f.jpeg", is: false },
                 { id: 2, name: '辣条', image: "../images/wp9352781-oil-paint-4k-wallpapers.jpg", is: false }
             ]
+        }
+    },
+    methods: {
+        fatherAdd(foodName){
+            this.list.push({
+                id:this.list.length+1,
+                name:foodName,
+                image:"",
+                is:false,
+            });
         }
     },
     computed: {
